@@ -1,0 +1,23 @@
+# Question 1a
+
+mysql -u awkologist -p compbiol -e 'create table expression2 select * from expression;'
+
+
+
+# Question 1b
+
+mysql -u awkologist -p compbiol -e 'create table annotation2 select * from annotation;'
+
+
+
+# Question 1c
+
+mysql -u awkologist -p compbiol -e 'select a.gene, a.function, e.expr_value from annotation a inner join expression e on a.gene = e.gene;'
+
+
+
+# Question 1d
+
+select m.metabolism
+from annotation m inner join annotation a on m.metabolism = a.metabolism
+where m.gene <> a.gene;
