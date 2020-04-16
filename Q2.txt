@@ -1,0 +1,31 @@
+# Question 2a
+
+select m.LastName, m.FirstName
+from Member m
+where m.Coach is null;
+
+
+# Question 2b
+
+select m.LastName, m.FirstName
+from Member m
+where m.JoinDate like '%2010%';
+
+
+# Question 2c
+
+select distinct m.MemberID,m.LastName,m.FirstName 
+from Member m inner join Entry e on e.MemberID=m.MemberID 
+where not exists
+(select * from Entry e where e.MemberID= m.MemberID and e.Year='2014');
+
+
+# Question 2d
+
+Select distinct m.LastName, m.FirstName, m.MemberID from Member m
+where not exists
+(select * from Entry e1
+ where not exists
+ (select * from Entry e2 
+ where e2.MemberID = m.MemberID and e1.Year = e2.Year) ) ;
+
