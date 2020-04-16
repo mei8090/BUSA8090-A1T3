@@ -12,7 +12,9 @@ mysql -u awkologist -p compbiol -e 'create table annotation2 select * from annot
 
 # Question 1c
 
-mysql -u awkologist -p compbiol -e 'select a.gene, a.function, e.expr_value from annotation a inner join expression e on a.gene = e.gene;'
+mysql -u awkologist -p compbiol -e 'select a.gene, a.function, e.expr_value 
+from annotation a 
+inner join expression e on a.gene = e.gene;'
 
 
 
